@@ -1,0 +1,126 @@
+/* App Container */
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.controls select {
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.score,
+.moves,
+.timer {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Memory Grid */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.memory-grid.size-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.memory-grid.size-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Maintain a square aspect ratio */
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .controls label,
+  .controls select {
+    width: 100%;
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .memory-grid.size-6 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/* Add this to your CSS file */
+
+/* Fireworks Animation */
+@keyframes fireworks {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.fireworks {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #ffcc00 20%, transparent 50%);
+  animation: fireworks 1s ease-out;
+  animation-iteration-count: infinite;
+}
+
